@@ -6,26 +6,39 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
 @import '../variables.scss';
 
-$brand-color: #61dafb;
+$brand-color: #565254;
 
 .root {
-  background: #373277;
-  color: #fff;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#20a1c9+0,6bfff2+75,000000+100&0.65+0,0+100 */
+  background: -moz-linear-gradient(top, rgba(32, 161, 201, 0.65) 0%, rgba(107, 255, 242, 0.16) 75%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(32, 161, 201, 0.65) 0%, rgba(107, 255, 242, 0.16) 75%, rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(32, 161, 201, 0.65) 0%, rgba(107, 255, 242, 0.16) 75%, rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a620a1c9', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+
+  color: #565254;
 }
 
 .container {
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 10px 0;
   max-width: $max-content-width;
 }
 
 .brand {
-  color: color($brand-color lightness(+10%));
+  text-shadow: -3px -3px 4px rgba(219, 255, 247, 0.9);
+  font-weight: normal;
+  color: #3B3B3B;
+  letter-spacing: 1pt;
+  word-spacing: 2pt;
+  font-size: 30px;
+  text-align: left;
+  font-family: comic sans, comic sans ms, cursive, verdana, arial, sans-serif;
+  line-height: 0;
+
   text-decoration: none;
-  font-size: 1.75em; /* ~28px */
+
 }
 
 .brandTxt {
@@ -43,7 +56,7 @@ $brand-color: #61dafb;
 
 .bannerTitle {
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   font-weight: normal;
   font-size: 4em;
   line-height: 1em;
@@ -51,7 +64,7 @@ $brand-color: #61dafb;
 
 .bannerDesc {
   padding: 0;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(71, 71, 71, 0.5);
   font-size: 1.25em;
   margin: 0;
 }

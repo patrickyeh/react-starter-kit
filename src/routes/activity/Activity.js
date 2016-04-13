@@ -7,25 +7,21 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Header.scss';
-import Link from '../Link';
-import Navigation from '../Navigation';
+import s from './Activity.scss';
 
-function Header() {
+function Contact({ title }) {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <Navigation className={s.nav} />
-        <Link className={s.brand} to="/">
-          <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
-          <span className={s.brandTxt}>Live Cycling</span>
-        </Link>
-
+        <h1>{title}</h1>
+        <p>...</p>
       </div>
     </div>
   );
 }
 
-export default withStyles(Header, s);
+Contact.propTypes = { title: PropTypes.string.isRequired };
+
+export default withStyles(Contact, s);

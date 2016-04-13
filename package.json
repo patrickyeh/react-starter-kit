@@ -25,6 +25,7 @@
     "isomorphic-style-loader": "0.0.12",
     "jade": "1.11.0",
     "jsonwebtoken": "5.7.0",
+    "knex": "^0.10.0",
     "markdown-it": "6.0.0",
     "node-fetch": "1.4.1",
     "normalize.css": "4.0.0",
@@ -111,12 +112,18 @@
     "rules": {
       "no-confusing-arrow": 0,
       "react/jsx-quotes": 0,
-      "jsx-quotes": [2, "prefer-double"]
+      "jsx-quotes": [
+        2,
+        "prefer-double"
+      ]
     }
   },
   "jscsConfig": {
     "preset": "airbnb",
-    "excludeFiles": ["build/**", "node_modules/**"],
+    "excludeFiles": [
+      "build/**",
+      "node_modules/**"
+    ],
     "disallowSpacesInsideTemplateStringPlaceholders": null
   },
   "jest": {

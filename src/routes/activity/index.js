@@ -7,8 +7,12 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import 'whatwg-fetch';
-export default self.fetch.bind(self);
-export const Headers = self.Headers;
-export const Request = self.Request;
-export const Response = self.Response;
+import React from 'react';
+import Contact from './Activity';
+
+export const path = '/activity';
+export const action = async (state) => {
+  const title = '活動列表';
+  state.context.onSetTitle(title);
+  return <Contact title={title} />;
+};

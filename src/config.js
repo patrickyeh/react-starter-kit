@@ -15,7 +15,7 @@ export const host = `p-da.club:${port}`;
 export const databaseUrl = process.env.DATABASE_URL || 'postgresql://postgres:a5mkdDJCDYRO4n-RpKN3mjbGYpWTi4UZ@192.168.0.95:5432/cycling';
 export const analytics = {
   // https://analytics.google.com/
-  google: { trackingId: process.env.GOOGLE_TRACKING_ID || 'UA-XXXXX-X' },
+  google: { trackingId: process.env.GOOGLE_TRACKING_ID || 'UA-76140783-1' },
 };
 
 export const auth = {

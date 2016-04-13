@@ -38,6 +38,15 @@ passport.use(new FacebookStrategy({
       if (result.rowCount) {
         // There is already a Facebook account that belongs to you.
         // Sign in with that account or delete it, then link it with your current account.
+        console.log('already has record');
+        await query(`
+          UPDATE user_profile SET
+            display_name = COALESCE(NULLIF(display_name, ''), $2),
+            gender       = COALESCE(NULLIF(gender, ''), $3),
+            picture      = COALESCE(NULLIF(picture, ''), $4)
+          WHERE user_id = $1;`,
+          req.user.id, profile._json.first_name + ' ' + profile._json.last_name, profile._json.gender,
+          `https://graph.facebook.com/${profile.id}/picture?type=large`);
         done();
       } else {
         await query(`
@@ -61,7 +70,7 @@ passport.use(new FacebookStrategy({
             gender       = COALESCE(NULLIF(gender, ''), $3),
             picture      = COALESCE(NULLIF(picture, ''), $4)
           WHERE user_id = $1;`,
-          req.user.id, profile.displayName, profile._json.gender,
+          req.user.id, profile._json.first_name + ' ' + profile._json.last_name, profile._json.gender,
           `https://graph.facebook.com/${profile.id}/picture?type=large`);
         result = await query(`
           SELECT id, email FROM user_account WHERE id = $1;`,

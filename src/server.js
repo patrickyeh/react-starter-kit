@@ -21,6 +21,7 @@ import passport from './core/passport';
 import schema from './data/schema';
 import Router from './routes';
 import assets from './assets';
+import api_activity from './api/activity';
 import { port, auth, analytics } from './config';
 
 const server = global.server = express();
@@ -40,6 +41,7 @@ server.use(cookieParser());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
+
 //
 // Authentication
 // -----------------------------------------------------------------------------
@@ -51,6 +53,8 @@ server.use(expressJwt({
   /* jscs:enable requireCamelCaseOrUpperCaseIdentifiers */
 }));
 server.use(passport.initialize());
+
+server.use('/api/activity',api_activity);
 
 server.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['email', 'user_location'], session: false })
@@ -74,6 +78,7 @@ server.use('/graphql', expressGraphQL(req => ({
   rootValue: { request: req },
   pretty: process.env.NODE_ENV !== 'production',
 })));
+
 
 //
 // Register server-side rendering middleware
